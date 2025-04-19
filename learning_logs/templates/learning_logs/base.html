@@ -1,6 +1,13 @@
 <p>
     <a href="{% url 'learning_logs:index' %}">Learning Log</a> -
     <a href="{% url 'learning_logs:topics' %}">Topics</a>
+    {% if user.is_authenticated %}
+    Xin chào, {{ user.username }}.
+    <a href="{% url 'users:logout' %}">Đăng xuất</a>
+    {% else %}
+    <a href="{% url 'users:register' %}">Đăng ký</a> -
+    <a href="{% url 'users:login' %}">Đăng nhập</a>
+    {% endif %}
 </p>
 
 {% block content %}{% endblock content %}

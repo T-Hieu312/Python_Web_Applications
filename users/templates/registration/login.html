@@ -1,0 +1,14 @@
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+  {% if form.errors %}
+    <p>Tên đăng nhập và mật khẩu không khớp. Vui lòng thử lại.</p>
+  {% endif %}
+  
+  <form method="post" action="{% url 'users:login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">Đăng nhập</button>
+    <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
+  </form>
+{% endblock content %}
