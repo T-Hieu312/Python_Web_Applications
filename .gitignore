@@ -1,0 +1,9 @@
+# virtual env
+ll_env/
+# DB local
+db.sqlite3
+# cache & pyc
+__pycache__/
+*.py[cod]
+# môi trường
+.env

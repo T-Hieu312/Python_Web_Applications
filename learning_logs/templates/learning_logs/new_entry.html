@@ -1,13 +1,18 @@
 {% extends "learning_logs/base.html" %}
+{% load bootstrap4 %}
 
 {% block content %}
-  <p><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></p>
-  
-  <p>Thêm entry mới:</p>
-  
-  <form action="{% url 'learning_logs:new_entry' topic.id %}" method='post'>
+  <p>
+    <a href="{% url 'learning_logs:topic' topic.id %}" class="btn btn-link">
+      ← Back to {{ topic }}
+    </a>
+  </p>
+  <h2>Add a New Entry</h2>
+  <form method="post" class="form">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button name='submit'>Thêm entry</button>
+    {% bootstrap_form form %}
+    {% buttons %}
+      <button type="submit" class="btn btn-success">Add Entry</button>
+    {% endbuttons %}
   </form>
-{% endblock content %}
+{% endblock %}

@@ -1,23 +1,33 @@
 {% extends 'learning_logs/base.html' %}
 
-{% block content %}
-<p>Topic: {{ topic }}</p>
+{% block page_header %}
+  <h3>{{ topic }}</h3>
+{% endblock page_header %}
 
-<p>Entries:</p>
-<p>
-    <a href="{% url 'learning_logs:new_entry' topic.id %}">Thêm entry mới</a>
-</p>
-<ul>
-    {% for entry in entries %}
-        <li>
-            <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
-            <p>{{ entry.text|linebreaks }}</p>
-            <p>
-                <a href="{% url 'learning_logs:edit_entry' entry.id %}">Chỉnh sửa entry</a>
-            </p>
-        </li>
-    {% empty %}
-        <li>There are no entries for this topic yet.</li>
-    {% endfor %}
-</ul>
+{% block content %}
+  <p>
+    <a href="{% url 'learning_logs:new_entry' topic.id %}">Add new entry</a>
+  </p>
+
+    <a class="btn btn-success mb-3"
+    href="{% url 'learning_logs:new_entry' topic.id %}">
+  Add New Entry
+  </a>
+  {% for entry in entries %}
+  <div class="card mb-3 shadow-sm">
+    <div class="card-header">
+      {{ entry.date_added|date:'M d, Y H:i' }}
+      <a href="{% url 'learning_logs:edit_entry' entry.id %}"
+          class="btn btn-sm btn-outline-secondary float-right">
+        Edit
+      </a>
+    </div>
+    <div class="card-body">
+      {{ entry.text|linebreaks }}
+    </div>
+  </div>
+  {% empty %}
+  <div class="alert alert-info">No entries yet.</div>
+  {% endfor %}
+
 {% endblock content %}
