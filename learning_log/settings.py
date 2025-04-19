@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -84,7 +85,7 @@ WSGI_APPLICATION = 'learning_log.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://localhost/mydb',  # Dùng cho local
+        default='postgres://uel0t7hntp9trb:p83dd508feb01572e3f93d9f4f4e1d41c4a65ad845b0cc82d0f7d6eb8780e4715@cf980tnnkgv1bp.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dcfaqkccj01n2l',  # Dùng cho local
         conn_max_age=600,
         ssl_require=True  # Bắt buộc SSL trên Heroku
     )
