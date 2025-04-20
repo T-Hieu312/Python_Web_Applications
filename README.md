@@ -4,8 +4,17 @@
 Ứng dụng này cho phép người dùng ghi lại những chủ đề mà họ đang học, cũng như những mục học tập chi tiết cho từng chủ đề đó.
 
 ---
+Link Web: https://ptit-django-2025-e99c2da87268.herokuapp.com/
 
-## Cách chạy dự án
+Tài khoản Admin:
+
+Username: admin
+
+Password: Matkhau@123
+
+---
+
+## Cách chạy dự án (localhost)
 
 ### 1. Clone project
 
